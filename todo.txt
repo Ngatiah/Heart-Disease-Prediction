@@ -7,4 +7,4 @@ Predict if a patient has heart disease (target).
 Handle missing values.
 Feature scaling for Logistic Regression / SVM.
 Compare model performance with ROC-AUC.
-📌 Skills practiced: Data Cleaning, Classification, Feature Scaling, Model Comparison.
+Skills practiced: Data Cleaning, Classification, Feature Scaling, Model Comparison.
