@@ -1,0 +1,75 @@
+Both StandardScaler (from sklearn.preprocessing) and minmax_scaling (from mlxtend.preprocessing) do feature scaling — that is, transforming numeric columns to comparable ranges so no single feature dominates due to magnitude differences.
+
+But how they scale and when to use them differ.
+
+⚙️ 2️⃣ What each does
+🧩 StandardScaler (z-score normalization)
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+
+🔹 Formula:
+    (  x - 𝜇 / σ )
+
+where
+μ = mean of the feature
+σ = standard deviation of the feature
+
+🔹 Effect:
+
+Centers data around 0
+Scales it so that variance = 1
+Produces values that can be negative
+
+🔹 Use when:
+
+Your features follow a normal (Gaussian) distribution or are roughly bell-shaped.
+
+You’re using algorithms that assume standardized data, like:
+
+Linear Regression
+Logistic Regression
+SVM
+K-Means
+PCA
+Neural Networks (sometimes)
+
+🔹 Example:
+
+Before:  [10, 100, 1000]
+After:   [-0.7,  0.0,  0.7]
+
+🧩 MinMax Scaling (from mlxtend.preprocessing)
+from mlxtend.preprocessing import minmax_scaling
+X_scaled = minmax_scaling(X, columns=['feature1', 'feature2'])
+
+
+🔹 Formula:
+    
+	(​X - Xmin / Xmax - Xmin)
+
+🔹 Effect:
+
+Rescales values to a fixed range, usually [0, 1]
+
+Preserves the shape of the original distribution
+
+No centering — everything just fits between 0 and 1
+
+🔹 Use when:
+
+You need bounded features (e.g., in neural networks or distance-based algorithms where magnitude matters).
+
+You have non-normal distributions or features with different units/scales.
+
+You want to preserve the original relationships between data points.
+
+Using Neural Networks, KNN, Tree-based models
+🔹 Example:
+
+Before:  [10, 100, 1000]
+After:   [0.0, 0.09, 1.0]
+
+NB: Using Decision Trees / RandomForest / XGBoost => No scaling needed

@@ -1,0 +1,28 @@
+SVM -Support Vector Machine 
+1.If target(y) is discrete(classification : binary or multiclass or Labels & probabilities) i.e. 0/1 ,spam/no spam ,e.t.c use SVC 
+  WITH METRICS used : Accuracy, ROC-AUC, F1
+    from sklearn.svm import SVC
+
+    svm_clf = SVC(kernel='rbf', probability=True)
+    svm_clf.fit(X_train_scaled, y_train)
+
+    y_pred_svm = svm_clf.predict(X_test_scaled)
+    y_prob_svm = svm_clf.predict_proba(X_test_scaled)[:, 1]
+
+    print("🔹 SVM Results (Classification)")
+    print("Accuracy:", accuracy_score(y_test, y_pred_svm))
+    print("ROC-AUC:", roc_auc_score(y_test, y_prob_svm))
+    print("\nClassification Report:\n", classification_report(y_test, y_pred_svm))
+
+
+2.if continuous then use SVR WITH METRICS used : MSE, RMSE, R²
+    from sklearn.svm import SVR
+    from sklearn.metrics import mean_squared_error, r2_score
+
+    svr_reg = SVR(kernel='rbf')
+    svr_reg.fit(X_train_scaled, y_train)
+    y_pred_svr = svr_reg.predict(X_test_scaled)
+
+    print("🔹 SVM Results (Regression)")
+    print("MSE:", mean_squared_error(y_test, y_pred_svr))
+    print("R²:", r2_score(y_test, y_pred_svr))
