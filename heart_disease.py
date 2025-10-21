@@ -1,15 +1,5 @@
 '''
 Heart Disease Prediction (Classification)
-
-Dataset: Heart Disease UCI
-Why: Health dataset with both categorical & numeric data, good for binary classification.
-What to do:
-Predict if a patient has heart disease (target).
-Handle missing values.
-Feature scaling for Logistic Regression / SVM.
-Compare model performance with ROC-AUC.
-Skills practiced: Data Cleaning, Classification, Feature Scaling, Model Comparison.
-
 '''
 import pandas as pd
 from sklearn.model_selection import train_test_split
