@@ -21,7 +21,7 @@ oldpeak: ST depression induced by exercise relative to rest
 slope: the slope of the peak exercise ST segment
 ca: number of major vessels (0-3) colored by fluoroscopy
 thal: [normal; fixed defect; reversible defect]
-num: the predicted attribute
+condition: the predicted attribute
 
 
 <!-- cleaveland attributes -->
